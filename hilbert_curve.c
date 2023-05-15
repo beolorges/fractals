@@ -61,10 +61,6 @@ String* get_X(int stage){
 	String* plus = new_string("+");
 	String* minus = new_string("-");
 
-    // return (y == NULL || x == NULL) ?
-    //     concatenate( (minus, f, plus, f, plus, f, minus), 7) :
-    //     concatenate( (minus, y, f, plus, x, f, x, plus, f, y, minus), 11);
-
     if(y == NULL || x == NULL){
         String *recurrency_rule [7] = { minus, f, plus, f, plus, f, minus };
         return concatenate(recurrency_rule, 7);
