@@ -43,11 +43,11 @@ String* get_Y(int stage){
 	String* minus = new_string("-");
 
     if(y == NULL || x == NULL){
-        String *recurrency_rule [7] = { plus, f, minus, f, minus, f, plus};
-        return concatenate(recurrency_rule, 7);
+        String *recurrency_rule [8] = { plus, f, f, minus, f, f, plus, plus };
+        return concatenate(recurrency_rule, 8);
     } else {
-        String *recurrency_rule [11] = { plus, x, f, minus, y, f, y, minus, f, x, plus };
-        return concatenate(recurrency_rule, 11);
+        String *recurrency_rule [13] = { plus, x, f, f, minus, y, x, f, y, f, x, plus, plus };
+        return concatenate(recurrency_rule, 13);
     }
 }
 
@@ -62,18 +62,19 @@ String* get_X(int stage){
 	String* minus = new_string("-");
 
     if(y == NULL || x == NULL){
-        String *recurrency_rule [7] = { minus, f, plus, f, plus, f, minus };
-        return concatenate(recurrency_rule, 7);
+        String *recurrency_rule [8] = { minus, f, f, plus, f, f, minus, minus};
+        return concatenate(recurrency_rule, 8);
     } else {
-        String *recurrency_rule [11] = {minus, y, f, plus, x, f, x, plus, f, y, minus};
-        return concatenate(recurrency_rule, 11);
+        String *recurrency_rule [13] = {minus, y, f, f, plus, x, y, f, x, f, y, minus, minus};
+        return concatenate(recurrency_rule, 13);
     }
 }
 
 void write_fractal(int size){
-	String* s = get_X(size);
+	String* x = get_X(size);
+	String* y = get_Y(size);
 
-	printf("%s\n", s->_string);
+	printf("%s+%s\n", x->_string, y->_string);
 }
 
 int main(){ 
