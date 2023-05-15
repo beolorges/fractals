@@ -40,22 +40,23 @@ String* get_fractal(int stage){
 
 	String* fractal = get_fractal(stage - 1);
 
-	String *recurrency_rule [15];
-	recurrency_rule[0] = fractal;
-	recurrency_rule[1] = plus;
-	recurrency_rule[2] = fractal;
-	recurrency_rule[3] = minus;
-	recurrency_rule[4] = fractal;
-	recurrency_rule[5] = minus;
-	recurrency_rule[6] = fractal;
-	recurrency_rule[7] = fractal;
-	recurrency_rule[8] = fractal;
-	recurrency_rule[9] = plus;
-	recurrency_rule[10] = fractal;
-	recurrency_rule[11] = plus;
-	recurrency_rule[12] = fractal;
-	recurrency_rule[13] = minus;
-	recurrency_rule[14] = fractal;
+	String *recurrency_rule [15] = {
+		fractal,
+		plus,
+		fractal,
+		minus,
+		fractal,
+		minus,
+		fractal,
+		fractal,
+		fractal,
+		plus,
+		fractal,
+		plus,
+		fractal,
+		minus,
+		fractal
+	};
 
 	return concatenate(recurrency_rule, 15);
 }
