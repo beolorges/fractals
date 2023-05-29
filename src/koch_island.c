@@ -61,19 +61,40 @@ String* get_fractal(int stage){
 	return concatenate(recurrency_rule, 15);
 }
 
-void write_fractal(int size){
+void write_fractal(int size, FILE* f ){
 	String* s = get_fractal(size - 1);
-
-	printf("%s+%s+%s+%s\n", 
+	
+	fprintf(f, "----------------------------------------------------------------------------------------------------------------------------------------------");
+	fprintf(f, "\nEstágio %d: %s+%s+%s+%s\n", 
+		size,
 		s->_string, 
 		s->_string, 
 		s->_string, 
 		s->_string);
+
 }
 
 
 int main(){ 
-	int size;
-	scanf("%d", &size);
-	write_fractal(size);
+	FILE* f = fopen("./files_output/koch_island.txt", "w");
+	fprintf(f, "# ILHA DE KOCH\n");
+	fprintf(f, "# Leonardo Borges de Oliveira - Universidade Federal de Minas Gerais\n");
+
+	int num_fractal;
+	int degree;
+	char axiom[8]; 
+	char rule[16];
+
+	scanf("%d", &num_fractal);
+	scanf("%s", axiom);
+	scanf("%d", &degree);
+	scanf("%s", rule);
+
+	fprintf(f, "#\n# Axioma: %s\n# Ângulo: %d\n# Regra: %s\n#\n", axiom, degree, rule );
+	fprintf(f, "# Estágios do Fractal:\n");
+	
+	for(int i = 1; i <= 4; i++) 
+		write_fractal(i, f);
+
+	fclose(f);
 }

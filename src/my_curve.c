@@ -70,15 +70,30 @@ String* get_X(int stage){
     }
 }
 
-void write_fractal(int size){
+void write_fractal(int size, FILE* f ){
 	String* x = get_X(size);
 	String* y = get_Y(size);
 
-	printf("%s+%s\n", x->_string, y->_string);
+	fprintf(f, "----------------------------------------------------------------------------------------------------------------------------------------------");
+	fprintf(f, "\nEstágio %d: %s+%s\n", size, x->_string, y->_string);
+
 }
 
 int main(){ 
-	int size;
-	scanf("%d", &size);
-	write_fractal(size);
+	FILE* f = fopen("./files_output/my_curve.txt", "w");
+	fprintf(f, "# PREENCHIMENTO DE ESPAÇO DE LEONARDO\n");
+	fprintf(f, "# Leonardo Borges de Oliveira - Universidade Federal de Minas Gerais\n");
+
+	int degree = 60;
+	char axiom[4] = "X+Y"; 
+	char rulex[14] = "-YFF+XYFXFY--"; 
+	char ruley[14] = "+XFF-YXFYFX++";
+
+	fprintf(f, "#\n# Axioma: %s\n# Ângulo: %d\n# Regra de X: %s\n# Regra de Y: %s\n#\n", axiom, degree, rulex, ruley);
+	fprintf(f, "# Estágios do Fractal:\n");
+
+	for(int i = 1; i <= 4; i++) 
+		write_fractal(i, f);
+
+	fclose(f);
 }

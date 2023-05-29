@@ -70,14 +70,34 @@ String* get_X(int stage){
     }
 }
 
-void write_fractal(int size){
+void write_fractal(int size, FILE* f ){
 	String* s = get_X(size);
-
-	printf("%s\n", s->_string);
+	fprintf(f, "----------------------------------------------------------------------------------------------------------------------------------------------");
+	fprintf(f, "\nEstágio %d: %s\n", size, s->_string);
 }
 
-int main(){ 
-	int size;
-	scanf("%d", &size);
-	write_fractal(size);
+int main(){
+	FILE* f = fopen("./files_output/hilbert_curve.txt", "w");
+	fprintf(f, "# PREENCHIMENTO DE ESPAÇO DE HILBERT\n");
+	fprintf(f, "# Leonardo Borges de Oliveira - Universidade Federal de Minas Gerais\n");
+
+	int num_fractal;
+	int degree;
+	char axiom[2]; 
+	char rulex[12];
+	char ruley[12];
+
+	scanf("%d", &num_fractal);
+	scanf("%s", axiom);
+	scanf("%d", &degree);
+	scanf("%s", rulex);
+	scanf("%s", ruley);
+
+	fprintf(f, "#\n# Axioma: %s\n# Ângulo: %d\n# Regra de X: %s\n# Regra de Y: %s\n#\n", axiom, degree, rulex, ruley);
+	fprintf(f, "# Estágios do Fractal:\n");
+
+	for(int i = 1; i <= 4; i++) 
+		write_fractal(i, f);
+
+	fclose(f);
 }
