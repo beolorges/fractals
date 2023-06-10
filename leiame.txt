@@ -1,0 +1,17 @@
+# LEIAME - TRABALHO PRÁTICO MATEMÁTICA DISCRETA
+# Leonardo Borges de Oliveira - Universidade Federal de Minas Gerais
+
+# Ambiente Computacional
+O trabalho foi executado no ambiente linux e compilado com GCC 11.3.0
+
+# Instruções de Execução
+Para a execução do trabalho, foi criado um makefile. Assim, na raiz do projeto é possível executar os seguintes comandos:
+	make execute_1: Para compilar e executar o primeiro fractal (Ilha de Koch)
+	make execute_2: Para compilar e executar o segundo fractal (Preenchimento de Espaço de Hilbert)
+	make execute_3: Para compilar e executar o terceiro fractal, implementado por mim. (Preenchimento de Espaço de Leonardo)
+	clean_bin: Para limpar os arquivos da pasta bin
+	clean_files: Para limpar os arquivos da pasta files_output
+	clean: Para limpar os arquivos das pastas bin e files_output
+
+Durante a execução dos dois primeiros, será necessário passar o axioma, o ângulo e a(s) regra(s), respectivamente.
+Por fim, será gerado um arquivo .txt dentro da pasta files_output com o nome igual ao do programa executado (koch_island.txt, hilbert_curve.txt e my_curve.txt)

@@ -6,11 +6,11 @@ typedef struct string {
 	char* _string;
 } String;
 
-String* get_X(int);
-String* get_Y(int);
+String* get_X(int stage);
+String* get_Y(int stage);
 
 String * new_string(char* c){
-	String* s = (String *) malloc(1 * sizeof(String));;
+	String* s = (String *) malloc(1 * sizeof(String));
 	s->size = 1;
 	s->_string = c;
 
@@ -87,10 +87,13 @@ int main(){
 	char rulex[12];
 	char ruley[12];
 
-	scanf("%d", &num_fractal);
+	printf("Insira o axioma: ");
 	scanf("%s", axiom);
+	printf("Insira o angulo: ");
 	scanf("%d", &degree);
+	printf("Insira a regra x: ");
 	scanf("%s", rulex);
+	printf("Insira a regra y: ");
 	scanf("%s", ruley);
 
 	fprintf(f, "#\n# Axioma: %s\n# Ângulo: %d\n# Regra de X: %s\n# Regra de Y: %s\n#\n", axiom, degree, rulex, ruley);

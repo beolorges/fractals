@@ -55,9 +55,9 @@ String* get_X(int stage){
 	if(stage == 0)
 		return NULL;
 
-    String* f = new_string("F");
     String* y = get_Y(stage - 1);
 	String* x = get_X(stage - 1);
+    String* f = new_string("F");
 	String* plus = new_string("+");
 	String* minus = new_string("-");
 
@@ -75,7 +75,7 @@ void write_fractal(int size, FILE* f ){
 	String* y = get_Y(size);
 
 	fprintf(f, "----------------------------------------------------------------------------------------------------------------------------------------------");
-	fprintf(f, "\nEstágio %d: %s+%s\n", size, x->_string, y->_string);
+	fprintf(f, "\nEstágio %d: %s+%s+%s+%s+%s+%s+%s+%s\n", size, x->_string, y->_string, x->_string, y->_string, x->_string, y->_string, x->_string,  y->_string);
 
 }
 
@@ -85,7 +85,7 @@ int main(){
 	fprintf(f, "# Leonardo Borges de Oliveira - Universidade Federal de Minas Gerais\n");
 
 	int degree = 60;
-	char axiom[4] = "X+Y"; 
+	char axiom[16] = "X+Y+X+Y+X+Y+X+Y"; 
 	char rulex[14] = "-YFF+XYFXFY--"; 
 	char ruley[14] = "+XFF-YXFYFX++";
 

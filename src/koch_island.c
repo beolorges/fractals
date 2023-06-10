@@ -62,7 +62,7 @@ String* get_fractal(int stage){
 }
 
 void write_fractal(int size, FILE* f ){
-	String* s = get_fractal(size - 1);
+	String* s = get_fractal(size);
 	
 	fprintf(f, "----------------------------------------------------------------------------------------------------------------------------------------------");
 	fprintf(f, "\nEstágio %d: %s+%s+%s+%s\n", 
@@ -85,9 +85,11 @@ int main(){
 	char axiom[8]; 
 	char rule[16];
 
-	scanf("%d", &num_fractal);
+	printf("Insira o axioma: ");
 	scanf("%s", axiom);
+	printf("Insira o angulo: ");
 	scanf("%d", &degree);
+	printf("Insira a regra: ");
 	scanf("%s", rule);
 
 	fprintf(f, "#\n# Axioma: %s\n# Ângulo: %d\n# Regra: %s\n#\n", axiom, degree, rule );
